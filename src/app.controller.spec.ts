@@ -1,3 +1,5 @@
+import { HttpStatus } from '@nestjs/common';
+
 import type { TestingModule } from '@nestjs/testing';
 import { Test } from '@nestjs/testing';
 
@@ -18,7 +20,11 @@ describe('AppController', () => {
 
     describe('root', () => {
         it('should return "Hello World!"', () => {
-            expect(appController.getHello()).toBe('Hello World!');
+            const result = appController.getHello();
+
+            expect(result.data).toBe('Hello World!');
+            expect(result.message).toBe('Hello message retrieved successfully');
+            expect(result.statusCode).toBe(HttpStatus.OK);
         });
     });
 });

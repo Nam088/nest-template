@@ -17,7 +17,12 @@ lerna-debug.log*
 
 # Tests
 /coverage
+coverage/
+**/coverage/
 /.nyc_output
+*.lcov
+coverage.lcov
+.coverage
 
 # Documentation
 /documentation

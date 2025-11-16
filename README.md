@@ -1,43 +1,34 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# NestJS Template
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A production-ready NestJS template with TypeScript, featuring comprehensive tooling, best practices, and a modular architecture.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Features
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **NestJS 11** - Latest version with TypeScript
+- **Swagger/OpenAPI** - Auto-generated API documentation
+- **PostgreSQL** - Database support with Docker Compose
+- **Jest** - Unit and E2E testing with coverage
+- **Compodoc** - Code documentation generator
+- **ESLint + Prettier** - Code quality and formatting
+- **Husky + lint-staged** - Git hooks for code quality
+- **Commitlint** - Conventional commit messages
+- **Zod** - Schema validation
+- **Path aliases** - Clean imports with `@/` prefixes
+- **TypeScript** - Strict type checking
 
 ## Prerequisites
 
-- Node.js (v20.18.3 or higher) - Use [nvm](https://github.com/nvm-sh/nvm) to manage Node versions
-- Docker and Docker Compose (for local database)
-- npm or yarn
+- **Node.js** (v20.18.3 or higher) - Use [nvm](https://github.com/nvm-sh/nvm) to manage Node versions
+- **Docker** and **Docker Compose** - For local PostgreSQL database
+- **npm** or **yarn** - Package manager
 
-## Project setup
+## Quick Start
 
 ### 1. Clone the repository
 
 ```bash
-$ git clone <repository-url>
-$ cd nest-template
+git clone https://github.com/Nam088/nest-template.git
+cd nest-template
 ```
 
 ### 2. Install Node.js version
@@ -45,13 +36,13 @@ $ cd nest-template
 If you're using nvm:
 
 ```bash
-$ nvm use
+nvm use
 ```
 
 ### 3. Install dependencies
 
 ```bash
-$ npm install
+npm install
 ```
 
 ### 4. Environment configuration
@@ -59,116 +50,386 @@ $ npm install
 Copy the example environment file and configure it:
 
 ```bash
-$ cp .env.example .env
+cp .env.example .env
 ```
 
-Edit `.env` file with your configuration values.
+Edit `.env` file with your configuration values. The application uses the following environment variables:
+
+- `NODE_ENV` - Environment (development, production, test)
+- `PORT` - Server port (default: 3000)
+- `API_VERSION` - API version (default: v1)
+- `SWAGGER_TITLE` - Swagger documentation title
+- `SWAGGER_DESCRIPTION` - Swagger documentation description
+- `SWAGGER_VERSION` - API version for Swagger
 
 ### 5. Start PostgreSQL database
 
 Using Docker Compose:
 
 ```bash
-$ docker-compose up -d
+docker-compose up -d
 ```
 
-This will start a PostgreSQL 16 container on port 5432.
+This will start a PostgreSQL 16 container on port 5432 with:
+
+- Database: `nest_template`
+- User: `postgres`
+- Password: `password`
 
 ### 6. Run the application
 
 ```bash
-# development
-$ npm run start
+# Development mode (with hot reload)
+npm run start:dev
 
-# watch mode (recommended for development)
-$ npm run start:dev
+# Production mode
+npm run start:prod
 
-# production mode
-$ npm run start:prod
+# Debug mode
+npm run start:debug
 ```
 
 The application will be available at:
 
-- API: `http://localhost:3000/api/v1`
-- Swagger Documentation: `http://localhost:3000/docs`
+- **API**: `http://localhost:3000/api/v1`
+- **Swagger Documentation**: `http://localhost:3000/docs`
+
+## Project Structure
+
+```
+nest-template/
+├── src/
+│   ├── common/              # Shared utilities, guards, interceptors, filters, pipes
+│   ├── config/              # Configuration files (app, database, etc.)
+│   ├── modules/             # Feature modules
+│   │   └── example/         # Example module (template for new modules)
+│   ├── shared/              # Shared DTOs, entities, interfaces
+│   ├── app.module.ts        # Root application module
+│   ├── app.controller.ts    # Root controller
+│   ├── app.service.ts       # Root service
+│   └── main.ts              # Application entry point
+├── test/                    # E2E tests
+├── documentation/           # Compodoc generated documentation
+├── coverage/                # Test coverage reports
+├── docker-compose.yml       # Docker Compose configuration
+├── compodoc.json            # Compodoc configuration
+├── tsconfig.json            # TypeScript configuration
+└── package.json             # Dependencies and scripts
+```
 
 ## Available Scripts
 
 ### Development
 
 ```bash
-# Start in development mode
-$ npm run start:dev
+# Start in development mode (watch mode)
+npm run start:dev
 
 # Start in debug mode
-$ npm run start:debug
+npm run start:debug
+
+# Build the application
+npm run build
+
+# Start in production mode
+npm run start:prod
 ```
 
 ### Code Quality
 
 ```bash
-# Run linter
-$ npm run lint
+# Run ESLint
+npm run lint
 
-# Fix linting issues
-$ npm run lint:fix
+# Fix linting issues automatically
+npm run lint:fix
 
-# Format code
-$ npm run format
+# Format code with Prettier
+npm run format
 ```
 
 ### Testing
 
 ```bash
-# unit tests
-$ npm run test
+# Run unit tests
+npm run test
 
-# e2e tests
-$ npm run test:e2e
+# Run unit tests in watch mode
+npm run test:watch
 
-# test coverage
-$ npm run test:cov
+# Run unit tests with coverage
+npm run test:cov
 
-# watch mode
-$ npm run test:watch
+# Run E2E tests
+npm run test:e2e
+
+# Debug tests
+npm run test:debug
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### Documentation
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+# Generate and serve documentation
+npm run docs
+
+# Generate documentation only
+npm run docs:build
+
+# Serve documentation
+npm run docs:serve
+
+# Watch mode for documentation
+npm run docs:watch
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## Testing & Coverage
 
-## Resources
+The project uses Jest for testing with comprehensive coverage reporting.
 
-Check out a few resources that may come in handy when working with NestJS:
+### Running Tests
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+```bash
+# Run all tests
+npm run test
 
-## Support
+# Run tests with coverage
+npm run test:cov
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Coverage Configuration
 
-## Stay in touch
+Coverage reports are generated in the `coverage/` directory. The coverage configuration includes:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- **Collect coverage from**: All TypeScript files in `src/`
+- **Coverage directory**: `coverage/`
+- **Coverage thresholds**: Configured in `package.json`
+
+### Viewing Coverage
+
+After running `npm run test:cov`, you can:
+
+1. View the HTML report: Open `coverage/lcov-report/index.html` in your browser
+2. Check the summary in the terminal output
+3. View coverage in Compodoc documentation (if configured)
+
+### Coverage Exclusions
+
+The following files are typically excluded from coverage:
+
+- Test files (`*.spec.ts`)
+- Configuration files
+- Type definition files
+- Main entry points
+
+## API Documentation
+
+### Swagger UI
+
+Access the interactive API documentation at:
+
+```
+http://localhost:3000/docs
+```
+
+The Swagger documentation includes:
+
+- All available endpoints
+- Request/response schemas
+- Authentication methods (API Key, JWT)
+- Try-it-out functionality
+
+### Compodoc
+
+Generate and view code documentation:
+
+```bash
+npm run docs
+```
+
+Then open `documentation/index.html` in your browser or access it via the serve command.
+
+## Module Structure
+
+The project follows a modular architecture. Each module should be structured as follows:
+
+```
+module-name/
+├── dto/                    # Data Transfer Objects
+│   ├── create-*.dto.ts
+│   ├── update-*.dto.ts
+│   ├── *-query.dto.ts
+│   └── index.ts
+├── *.controller.ts         # Controller
+├── *.service.ts            # Service
+├── *.module.ts             # Module definition
+└── README.md               # Module documentation (optional)
+```
+
+See the `example` module for a reference implementation.
+
+## Path Aliases
+
+The project uses TypeScript path aliases for cleaner imports:
+
+```typescript
+// Instead of relative paths
+import { Something } from '../../../common/utils';
+
+// Use aliases
+import { Something } from '@/common/utils';
+import { Config } from '@config/app.config';
+import { ExampleService } from '@modules/example/example.service';
+```
+
+Available aliases:
+
+- `@/*` → `src/*`
+- `@common/*` → `src/common/*`
+- `@config/*` → `src/config/*`
+- `@modules/*` → `src/modules/*`
+- `@shared/*` → `src/shared/*`
+
+## Git Hooks
+
+The project uses Husky for Git hooks:
+
+- **pre-commit**: Runs lint-staged to check staged files
+- **commit-msg**: Validates commit messages with Commitlint
+
+### Commit Message Format
+
+Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+
+```
+type(scope): subject
+
+body
+
+footer
+```
+
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, etc.
+
+## Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+NODE_ENV=development
+PORT=3000
+API_VERSION=v1
+
+SWAGGER_TITLE=NestJS API
+SWAGGER_DESCRIPTION=REST API Documentation
+SWAGGER_VERSION=1.0.0
+
+# Database configuration (if using)
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=password
+DB_DATABASE=nest_template
+```
+
+## Docker
+
+### Start Services
+
+```bash
+docker-compose up -d
+```
+
+### Stop Services
+
+```bash
+docker-compose down
+```
+
+### View Logs
+
+```bash
+docker-compose logs -f postgres
+```
+
+## Dependencies
+
+### Main Dependencies
+
+- `@nestjs/common` - NestJS core
+- `@nestjs/core` - NestJS core
+- `@nestjs/config` - Configuration module
+- `@nestjs/swagger` - Swagger/OpenAPI integration
+- `@nam088/nestjs-kit` - Custom NestJS utilities
+- `zod` - Schema validation
+- `rxjs` - Reactive programming
+
+### Development Dependencies
+
+- `@nestjs/cli` - NestJS CLI
+- `@nestjs/testing` - Testing utilities
+- `jest` - Testing framework
+- `ts-jest` - TypeScript support for Jest
+- `@compodoc/compodoc` - Documentation generator
+- `@nam088/nestjs-eslint` - ESLint configuration
+- `prettier` - Code formatter
+- `husky` - Git hooks
+- `lint-staged` - Run linters on staged files
+- `@commitlint/cli` - Commit message linter
+
+## Best Practices
+
+1. **Modular Architecture**: Keep features in separate modules
+2. **DTOs**: Use DTOs for all API inputs/outputs
+3. **Validation**: Use Zod schemas for validation
+4. **Error Handling**: Use the global exception filter
+5. **Testing**: Write unit tests for services and E2E tests for controllers
+6. **Documentation**: Document complex logic and APIs
+7. **Type Safety**: Leverage TypeScript's type system
+8. **Code Quality**: Run linter and formatter before committing
+
+## Troubleshooting
+
+### Port Already in Use
+
+If port 3000 is already in use, change it in your `.env` file:
+
+```env
+PORT=3001
+```
+
+### Database Connection Issues
+
+1. Ensure Docker is running
+2. Check if PostgreSQL container is up: `docker-compose ps`
+3. Verify database credentials in `.env`
+4. Check container logs: `docker-compose logs postgres`
+
+### Test Coverage Issues
+
+1. Ensure all test files follow the `*.spec.ts` naming convention
+2. Check that test files are in the correct directories
+3. Verify Jest configuration in `package.json`
+
+## Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Write/update tests
+4. Ensure all tests pass: `npm run test`
+5. Run linter: `npm run lint`
+6. Format code: `npm run format`
+7. Commit using conventional commits
+8. Push and create a pull request
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+This project is private and unlicensed.
+
+## Support
+
+For questions and support, please refer to:
+
+- [NestJS Documentation](https://docs.nestjs.com)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs)
+- [Jest Documentation](https://jestjs.io/docs/getting-started)

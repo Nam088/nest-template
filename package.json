@@ -26,30 +26,6 @@
         "test:e2e": "jest --config ./test/jest-e2e.json",
         "test:watch": "jest --watch"
     },
-    "jest": {
-        "collectCoverageFrom": [
-            "**/*.(t|j)s"
-        ],
-        "coverageDirectory": "../coverage",
-        "moduleFileExtensions": [
-            "js",
-            "json",
-            "ts"
-        ],
-        "moduleNameMapper": {
-            "^@/(.*)$": "<rootDir>/$1",
-            "^@common/(.*)$": "<rootDir>/common/$1",
-            "^@config/(.*)$": "<rootDir>/config/$1",
-            "^@modules/(.*)$": "<rootDir>/modules/$1",
-            "^@shared/(.*)$": "<rootDir>/shared/$1"
-        },
-        "rootDir": "src",
-        "testEnvironment": "node",
-        "testRegex": ".*\\.spec\\.ts$",
-        "transform": {
-            "^.+\\.(t|j)s$": "ts-jest"
-        }
-    },
     "dependencies": {
         "@nam088/nestjs-kit": "^2.1.0",
         "@nestjs/common": "^11.0.1",

@@ -22,6 +22,7 @@ export default createNestJSConfig({
     'coverage/**',
     '*.min.js',
     'node_modules/**',
+    'jest.config.js',
   ],
   
   // Custom project-specific rules
