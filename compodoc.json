@@ -1,0 +1,86 @@
+{
+    "$schema": "./node_modules/@compodoc/compodoc/src/config/schema.json",
+    "name": "NestJS Template API Documentation",
+    "output": "documentation",
+    "tsconfig": "tsconfig.json",
+    "theme": "gitbook",
+    "includes": "src/**/*.ts",
+    "includesName": "API Documentation",
+    "disableSourceCode": false,
+    "disableDomTree": false,
+    "disableTemplateTab": false,
+    "disableGraph": false,
+    "disableCoverage": false,
+    "disablePrivateOrInternalSupport": false,
+    "disableLifeCycleHooks": false,
+    "disableRoutesGraph": false,
+    "disableSearch": false,
+    "hideGenerator": false,
+    "navTabConfig": [
+        {
+            "id": "info",
+            "label": "Info"
+        },
+        {
+            "id": "readme",
+            "label": "README"
+        },
+        {
+            "id": "source",
+            "label": "Source"
+        },
+        {
+            "id": "template",
+            "label": "Template"
+        },
+        {
+            "id": "tree",
+            "label": "Tree"
+        },
+        {
+            "id": "example",
+            "label": "Example"
+        }
+    ],
+    "language": "en-US",
+    "customFavicon": "",
+    "customLogo": "",
+    "extTheme": "",
+    "toggleMenuItems": ["all"],
+    "scripts": [],
+    "styles": [],
+    "assetsFolder": "",
+    "minimal": false,
+    "open": false,
+    "serve": false,
+    "port": 8080,
+    "watch": false,
+    "exportFormat": "html",
+    "exportFormats": ["html", "json"],
+    "base": "/",
+    "hideDarkModeToggle": false,
+    "coverageTest": 80,
+    "coverageTestThresholdFail": false,
+    "coverageMinimumPerFile": 0,
+    "coverageTestShowOnlyFailed": false,
+    "unitTestCoverage": "coverage/coverage-summary.json",
+    "routes": [],
+    "angularVersion": "",
+    "compodoc": "src",
+    "includesMD": [
+        "README.md",
+        "src/modules/example/README.md",
+        "src/modules/example/example.service.md",
+        "src/modules/example/example.controller.md"
+    ],
+    "includesNameMD": "Documentation",
+    "silent": false,
+    "compilationFlags": {
+        "annotationsAsDecorators": true,
+        "closureCompiler": false,
+        "generateCode": true
+    },
+    "mainGraph": "",
+    "moduleGraph": "",
+    "readme": "README.md"
+}

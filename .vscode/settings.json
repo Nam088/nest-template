@@ -8,9 +8,6 @@
   "javascript.preferences.includePackageJsonAutoImports": "on",
   "javascript.updateImportsOnFileMove.enabled": "always",
 
-  // Format on save with Prettier
-  "editor.formatOnSave": true,
-
   // action on save eslint
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always",

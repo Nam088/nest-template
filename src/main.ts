@@ -3,13 +3,13 @@ import 'reflect-metadata';
 import type { NestApplication } from '@nestjs/core';
 import { NestFactory, Reflector } from '@nestjs/core';
 
-import { Logger } from '@nestjs/common';
+import { ClassSerializerInterceptor, Logger } from '@nestjs/common';
 
 import { ConfigService } from '@nestjs/config';
 
 import { HttpExceptionFilter, setUpSwagger } from '@nam088/nestjs-kit';
 
-import { AppModule } from './app.module';
+import { AppModule } from '@/app.module';
 
 const bootstrap = async () => {
     const app = await NestFactory.create<NestApplication>(AppModule);
@@ -27,8 +27,8 @@ const bootstrap = async () => {
     const reflector = app.get(Reflector);
     const logger = new Logger('Bootstrap');
 
-    // Global prefix
-    app.setGlobalPrefix(`api/${config.apiVersion}`);
+    // Global class serializer interceptor
+    app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
 
     // Global exception filter
     app.useGlobalFilters(

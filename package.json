@@ -7,6 +7,10 @@
     "author": "",
     "scripts": {
         "build": "nest build",
+        "docs": "compodoc -p tsconfig.json -s",
+        "docs:build": "compodoc -p tsconfig.json",
+        "docs:serve": "compodoc -p tsconfig.json -s",
+        "docs:watch": "compodoc -p tsconfig.json -s -w",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
         "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
         "lint:fix": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -60,6 +64,7 @@
     "devDependencies": {
         "@commitlint/cli": "^20.1.0",
         "@commitlint/config-conventional": "^20.0.0",
+        "@compodoc/compodoc": "^1.1.32",
         "@nam088/nestjs-eslint": "^2.1.19",
         "@nestjs/cli": "^11.0.0",
         "@nestjs/schematics": "^11.0.0",

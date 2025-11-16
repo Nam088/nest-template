@@ -25,26 +25,99 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Prerequisites
+
+- Node.js (v20.18.3 or higher) - Use [nvm](https://github.com/nvm-sh/nvm) to manage Node versions
+- Docker and Docker Compose (for local database)
+- npm or yarn
+
 ## Project setup
+
+### 1. Clone the repository
+
+```bash
+$ git clone <repository-url>
+$ cd nest-template
+```
+
+### 2. Install Node.js version
+
+If you're using nvm:
+
+```bash
+$ nvm use
+```
+
+### 3. Install dependencies
 
 ```bash
 $ npm install
 ```
 
-## Compile and run the project
+### 4. Environment configuration
+
+Copy the example environment file and configure it:
+
+```bash
+$ cp .env.example .env
+```
+
+Edit `.env` file with your configuration values.
+
+### 5. Start PostgreSQL database
+
+Using Docker Compose:
+
+```bash
+$ docker-compose up -d
+```
+
+This will start a PostgreSQL 16 container on port 5432.
+
+### 6. Run the application
 
 ```bash
 # development
 $ npm run start
 
-# watch mode
+# watch mode (recommended for development)
 $ npm run start:dev
 
 # production mode
 $ npm run start:prod
 ```
 
-## Run tests
+The application will be available at:
+
+- API: `http://localhost:3000/api/v1`
+- Swagger Documentation: `http://localhost:3000/docs`
+
+## Available Scripts
+
+### Development
+
+```bash
+# Start in development mode
+$ npm run start:dev
+
+# Start in debug mode
+$ npm run start:debug
+```
+
+### Code Quality
+
+```bash
+# Run linter
+$ npm run lint
+
+# Fix linting issues
+$ npm run lint:fix
+
+# Format code
+$ npm run format
+```
+
+### Testing
 
 ```bash
 # unit tests
@@ -55,6 +128,9 @@ $ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
+
+# watch mode
+$ npm run test:watch
 ```
 
 ## Deployment

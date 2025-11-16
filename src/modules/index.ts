@@ -1,2 +1,2 @@
 // Feature modules
-// Example: export * from './users/users.module';
+export * from './example/example.module';

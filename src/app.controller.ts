@@ -2,7 +2,7 @@ import { Controller, Get, HttpStatus } from '@nestjs/common';
 
 import { ApiGetEndpoint, ApiResponseData } from '@nam088/nestjs-kit';
 
-import { AppService } from './app.service';
+import { AppService } from '@/app.service';
 
 @Controller()
 export class AppController {
@@ -17,6 +17,10 @@ export class AppController {
         tags: ['Health'],
     })
     @Get()
+    /**
+     * Retrieves a hello message from the API
+     * @returns {ApiResponseData<string>} API response containing the hello message
+     */
     getHello() {
         const message = this.appService.getHello();
 
