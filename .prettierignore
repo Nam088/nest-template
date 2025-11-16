@@ -1,0 +1,21 @@
+# Dependencies
+node_modules
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist
+build
+coverage
+*.min.js
+
+# Config files that should not be formatted
+.vscode/**
+*.config.js
+*.config.mjs
+*.config.ts
+
+# Logs
+*.log
+

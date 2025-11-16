@@ -1,0 +1,26 @@
+{
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.suggest.paths": true,
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.suggest.paths": true,
+  "javascript.preferences.includePackageJsonAutoImports": "on",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  // Format on save with Prettier
+  "editor.formatOnSave": true,
+
+  // action on save eslint
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.organizeImports": "explicit"
+  },
+
+  // Disable format on save for .vscode folder (settings.json, etc.)
+  // Prettier will also ignore .vscode folder via .prettierignore
+  "[jsonc]": {
+    "editor.formatOnSave": false
+  }
+}
+
